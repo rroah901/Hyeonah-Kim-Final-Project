@@ -1,0 +1,14 @@
+@import "variables.scss";
+
+//import mixins  
+@import "mixins.scss";
+
+//import resets
+@import "normalize.scss";
+@import "box_reset.scss";
+
+//import page content styles
+@import "header.scss";
+@import "page_content.scss";
+@import "footer.scss";
+

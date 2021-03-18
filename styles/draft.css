@@ -1,0 +1,115 @@
+/*header*/
+header h1 {
+  text-align: center;
+  color: red;
+}
+
+/*pop up style*/
+#pop-up {
+  width: 300px;
+  padding: 10px;
+  background-color: pink;
+  color: white;
+  border: solid 1px red;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#pop-up h1 {
+  text-align: center;
+}
+
+#pop-up p {
+  margin-bottom: 40px;
+}
+
+#btn-close {
+  padding: 4px;
+  position: absolute;
+  bottom: 10px;
+  right: 150px;
+  font-weight: bold;
+  background-color: inherit;
+  color: inherit;
+  border: solid 1px white;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+/*page content*/
+.game-container {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  border: 1px solid black;
+  padding: 10px;
+  justify-content: space-around;
+}
+
+.game-container section {
+  margin: 10px;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.game-container h2 {
+  width: 100%;
+  text-align: center;
+}
+
+section h3 {
+  background-color: #00afb9;
+  text-align: center;
+}
+
+section .dices, section .scores {
+  justify-content: center;
+  display: flex;
+}
+
+section .dices div, section .scores div {
+  padding: 5%;
+  border: 1px solid black;
+  width: 45%;
+  text-align: center;
+}
+
+/*buttons*/
+.buttons {
+  padding: 10px;
+  margin: 3%;
+  text-align: center;
+}
+
+.buttons button {
+  margin: 0 2%;
+  padding: 3px;
+}
+
+/*Rules and instructions*/
+.accordion-container {
+  border-bottom: 3px solid black;
+}
+
+.content-header {
+  display: flex;
+  padding: 0 5%;
+  justify-content: space-between;
+}
+
+.content-header span {
+  margin: auto 0;
+}
+
+.content ul {
+  padding-left: 10%;
+}
+
+.tab01, .tab02 {
+  cursor: pointer;
+}
