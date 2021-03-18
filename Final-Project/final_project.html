@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+        <meta charset="utf-8"/>
+        <title>Dice Game - Final Project</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="styles/draft.css"/>
+
+    </head>
+    <body>
+        <div class="wrapper">
+            <header>
+                <h1>Dice Game</h1>
+            </header>
+            <main>            
+                <section  id="pop-up">
+                    <h1>Game Over</h1>
+                    <p id="result"></p>
+                    <!-- innerHTML += Congratulation! You won! -->
+                    <!-- innerHTML += Tough luck! You lost..-->
+                     <button id="btn-close">OK</button> 
+                </section>
+
+    
+    
+                <div class="game-container">
+                    <section>
+                        <h2 id="you" value="you">You</h2>
+                        <div class="dice">
+                            <h3>Your Dice</h3>
+                            <div class="dices">
+                                <div class="dice-01">
+                                    <h4>Dice #1</h4>
+                                    <img class="dice1" src="images/default-image.jpg">
+                                </div>
+                                <div class="dice-02">
+                                    <h4>Dice #2</h4>
+                                    <img class="dice2" src="images/default-image.jpg">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="score">
+                            <h3>Your Score</h3>
+                            <div class="scores">
+                                <div>
+                                    <p>Current Score</p>
+                                    <span id="your-score">0</span>
+                                </div>
+                                <div >
+                                    <p>Total Score</p>
+                                    <span id="your-total-score">0</span>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </section>  
+                    <section>
+                        <h2>Computer</h2>
+                        <div class="dice">
+                            <h3>Computer's Dice</h3>
+                            <div class="dices">
+                                <div class="dice-01">
+                                    <h4>Dice #1</h4>
+                                    <img class="dice3" src="images/default-image.jpg">
+                                </div>
+                                <div class="dice-02">
+                                    <h4>Dice #2</h4>
+                                    <img class="dice4" src="images/default-image.jpg">
+                                </div>
+                            </div>
+                    
+                        </div>
+                        <div class="score">
+                            <h3>Your Score</h3>
+                            <div class="scores">
+                                <div>
+                                    <p>Current Score</p>
+                                    <span id="computer-score">0</span>
+                                </div>
+                                <div>
+                                    <p>Total Score</p>
+                                    <span id="computer-total-score">0</span>
+                                </div>
+                            </div>
+                                 
+                        </div>
+                    </section>                             
+                </div>
+                <div class="buttons">
+                    <button id="btn-new-game">New Game</button>
+                    <button id="btn-roll-dice">Roll Dice</button>
+                </div>
+
+
+                <div class="accordion-container">
+                    <!-- sessoion 7 hide and show toggle using JQuery-->
+                    <div class="content-header">
+                        <h2>How to play</h2>
+                        <span class="tab01">[hide]</span>
+                    </div>
+                    <div class="content content-01">
+                        <ul >
+                            <li>To start, click the “Roll Dice” button.</li>
+                            <li>To advance to the next round, click the “Roll Dice” button.</li>
+                            <li>After three rounds, the game is over and the final score is calculated.</li>
+                            <li>If you want to play again, click the “Next Game” button or refresh the page.</li>
+                        </ul>
+                     </div><!-- end content -->
+                </div><!-- end accoridion-container -->
+                
+                <div class="accordion-container">
+                    <div class="content-header">
+                        <h2>Rules</h2>
+                        <span class="tab02">[hide]</span>
+                    </div>
+                    <div class="content content-02">
+                        <ul>
+                            <li>Each round, you and the computer both roll a pair of dice.</li>
+                            <li>Your score for that round will be based on the sum of the dice.</li>
+                            <li>If you roll doubles (e.g. a 3 and a 3) then your score is multiplied by 2.</li>
+                            <li>Rolling a 1 will give you a score of 0 for that round.</li>
+                            <li>The player who has the most points at the end of the three rounds is the winner.</li>
+                        </ul>
+                     </div><!-- end content -->
+                </div><!-- end accoridion-container -->
+            </main>     
+            <footer>
+                COMP 2132
+            </footer>
+            <!-- refer the style of footer to have it on the left bottom side of the page-->
+        </div>
+        <script src="scripts/jquery-3.4.1.min.js"></script>
+        <script src="scripts/my_functions.js"></script>
+   </body>
+</html>
