@@ -25,10 +25,13 @@ let yourScore =document.getElementById("your-score");
 let computerScore =document.getElementById("computer-score");
 let yourTotalScore = document.getElementById("your-total-score");
 let computerTotalScore = document.getElementById("computer-total-score") ;
-let round = 1;
+let round = 0;
+let totalScore =0;
+let totalScoreComputer = 0;
 
 
 function rollTheDice(){
+    
     // set round
         if(startPlaying){
             // generate random numbers when rolling a dice
@@ -36,7 +39,7 @@ function rollTheDice(){
             let randomNumber2 = Math.floor(Math.random()*6)+1;
             let randomNumber3 = Math.floor(Math.random()*6)+1;
             let randomNumber4 = Math.floor(Math.random()*6)+1;
-        
+            
             // set the final round as 3
             if(round <4){
                 loading();   
@@ -67,12 +70,12 @@ function rollTheDice(){
                             if(randomNumber2 ===1){
                                 currentScore = 0;
                             }
-                        }
+                         }
                         // how to have the total score using function? 
                             
-                                
+                        totalScore = totalScore + currentScore;
+                        yourTotalScore.innerHTML = `${totalScore}`;
                         yourScore.innerHTML = `<span>${currentScore}</span>`;
-                        
                         console.log(`Round ${round}, you get ${currentScore}.`)
                         
                 
@@ -91,7 +94,8 @@ function rollTheDice(){
                             }
                         }
                         
-
+                        totalScoreComputer = totalScoreComputer +currentScore;
+                        computerTotalScore.innerHTML =`${totalScoreComputer}`;
                         computerScore.innerHTML = `<span>${currentScore}</span>`;
                         console.log(`Round ${round}, coumputer gets ${currentScore}.`)
                         console.log("----------------------------------------");
@@ -100,7 +104,7 @@ function rollTheDice(){
                 }   
 
             
-            }if(round >= 3){
+            }if(round > 3){
                 gameOver = true;
                 setTimeout( function(){
                     popupMessage(yourScore, computerTotalScore);
@@ -126,9 +130,10 @@ function rollTheDice(){
                 },4300)
             }
             } 
-            round = round+1;
-
+ 
         }
+        round = round+1;
+
 }
     
 const popup2 = document.getElementById('pop-up2');
@@ -170,7 +175,7 @@ closePopup.addEventListener('click', function(){
 //roll the dice
 rollDiceBtn.addEventListener("click", function(){
     startPlaying = true; 
-     rollTheDice();
+    rollTheDice();
    });
 
 // click new game
