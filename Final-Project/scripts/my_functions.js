@@ -28,9 +28,9 @@ const closePopup = document.getElementById('btn-close');
 const winner = document.getElementById('result');
 const delay = 1000;
 const popup2 = document.getElementById('pop-up2');
+popup.style.opacity = "0";
 popup2.style.display = "none";
 
-popup.style.opacity = "0";
 
  
 
@@ -118,33 +118,33 @@ function rollTheDice(){
                         console.log("----------------------------------------");
                         
                 
-                }if(round === 2){
-                    startPlaying = false;
-                    gameOver = true;
-                    setTimeout( function(){
-                        popupMessage(totalScore, totalScoreComputer);
-                        if(gameOver === false){
-                            popup.style.display = "none";
-                        }else{
-                            fadeIn(popup);
-                            function fadeIn(element){
-                                let op = 0;
-                                element.style.opacity = op;
-                                timer = setInterval(function(){
-                                    if(op>= 1.0){
-                                        clearInterval(timer);
-                                    }
-                                    element.style.opacity = op;
-                                    op += 0.1;
-                                }, 80);
-                                
-                
-                        }
-                
-                    }
-                },4000);
-                    
                 }
+            }if(round === 2){
+                startPlaying = false;
+                gameOver = true;
+                setTimeout( function(){
+                    popupMessage(totalScore, totalScoreComputer);
+                    if(gameOver === false){
+                        popup.style.display = "none";
+                    }else{
+                        fadeIn(popup);
+                        function fadeIn(element){
+                            let op = 0;
+                            element.style.opacity = op;
+                            timer = setInterval(function(){
+                                if(op>= 1.0){
+                                    clearInterval(timer);
+                                }
+                                element.style.opacity = op;
+                                op += 0.1;
+                            }, 80);
+                            
+            
+                    }
+            
+                }
+            },4000);
+                
             }
             
             
@@ -197,7 +197,8 @@ function popupMessage(score1, score2){
 
 //popup will close when clicking 'ok' button
 closePopup.addEventListener('click', function(){
-    popup.style.display= "none";
+    gameOver = false;
+    popup.style.opacity= "0";
     });
 
 
