@@ -1,33 +1,49 @@
-let   gameOver = false;
+
+// boolean flags
+let sgameOver = false;
+let startPlaying = false;
+
+//changeable variables 
+let yourScore = document.getElementById("your-score");
+let computerScore = document.getElementById("computer-score");
+let yourTotalScore = document.getElementById("your-total-score");
+let computerTotalScore = document.getElementById("computer-total-score") ;
+
+
 
 //pop-up script, ensure delay need to be updated 
 //change pop up style and function details
+
+// buttons
 const rollDiceBtn = document.getElementById('btn-roll-dice');
 const newGameBtn = document.getElementById('btn-new-game');
 
+
+
+
+// set pop-ups 
 
 const popup = document.getElementById('pop-up');
 const closePopup = document.getElementById('btn-close');
 const winner = document.getElementById('result');
 const delay = 1000;
+const popup2 = document.getElementById('pop-up2');
+popup2.style.display = "none";
+
 popup.style.opacity = "0";
-
-
 
  
 
 // dice images 
 
-// setinterval!
 
-let startPlaying = false;
-let yourScore =document.getElementById("your-score");
-let computerScore =document.getElementById("computer-score");
-let yourTotalScore = document.getElementById("your-total-score");
-let computerTotalScore = document.getElementById("computer-total-score") ;
+//set the initial value for the score
 let round = 0;
-let totalScore =0;
+let totalScore = 0;
 let totalScoreComputer = 0;
+
+//This function will generate 4 random numbers and each number will be assigned to the image of each sides of dice.
+//Every round 'user' and 'computer' get the score and it will be calculated based on the following rules. 
 
 
 function rollTheDice(){
@@ -41,7 +57,7 @@ function rollTheDice(){
             let randomNumber4 = Math.floor(Math.random()*6)+1;
             
             // set the final round as 3
-            if(round <4){
+            if(round <=2){
                 loading();   
                 setTimeout(function(){
                     document.querySelector(".dice1").setAttribute("src","images/dice"+randomNumber1+".png");
@@ -50,15 +66,16 @@ function rollTheDice(){
                     document.querySelector(".dice4").setAttribute("src","images/dice"+randomNumber4+".png");
                     
                     // invoke get the current score function
-                    getScore("you");
+                    getScore("user");
                     getScore("computer");
-                    },2700)
-                 
+                    },2700);
+                    
+                // This function will calculate a score and add up total score. 
                 function getScore(player){
                     let currentScore = 0;
                     
-                    // pass the params to 
-                    if(player === "you"){
+                    // This statement will check 
+                    if(player === "user"){
                         if(randomNumber1 && randomNumber2 >1){
                             currentScore = randomNumber1 + randomNumber2;
                             if(randomNumber1 === randomNumber2){
@@ -71,16 +88,15 @@ function rollTheDice(){
                                 currentScore = 0;
                             }
                          }
-                        // how to have the total score using function? 
-                            
+                             
                         totalScore = totalScore + currentScore;
                         yourTotalScore.innerHTML = `${totalScore}`;
                         yourScore.innerHTML = `<span>${currentScore}</span>`;
-                        console.log(`Round ${round}, you get ${currentScore}.`)
+                        console.log(`Round ${round}, you get ${currentScore}.`);
+                        console.log(`Your total score is ${totalScore}`);
                         
                 
-                    }
-                    if(player === "computer"){
+                    }if(player === "computer"){
                         if(randomNumber3 && randomNumber4 >1){
                             currentScore = randomNumber3 + randomNumber4;
                             if(randomNumber3 === randomNumber4){
@@ -97,48 +113,57 @@ function rollTheDice(){
                         totalScoreComputer = totalScoreComputer +currentScore;
                         computerTotalScore.innerHTML =`${totalScoreComputer}`;
                         computerScore.innerHTML = `<span>${currentScore}</span>`;
-                        console.log(`Round ${round}, coumputer gets ${currentScore}.`)
+                        console.log(`Round ${round}, coumputer gets ${currentScore}.`);
+                        console.log(`Computer's total score: ${totalScoreComputer}`);
                         console.log("----------------------------------------");
                         
                 
-                }   
-
-            
-            }if(round > 3){
-                gameOver = true;
-                setTimeout( function(){
-                    popupMessage(yourScore, computerTotalScore);
-                    if(gameOver === false){
-                        popup.style.display = "none";
-                    }else{
-                        fadeIn(popup);
-                        function fadeIn(element){
-                            let op = 0;
-                            element.style.opacity = op;
-                            timer = setInterval(function(){
-                                if(op>= 1.0){
-                                    clearInterval(timer);
-                                }
+                }if(round === 2){
+                    startPlaying = false;
+                    gameOver = true;
+                    setTimeout( function(){
+                        popupMessage(totalScore, totalScoreComputer);
+                        if(gameOver === false){
+                            popup.style.display = "none";
+                        }else{
+                            fadeIn(popup);
+                            function fadeIn(element){
+                                let op = 0;
                                 element.style.opacity = op;
-                                op += 0.1;
-                            }, 80);
-                            
+                                timer = setInterval(function(){
+                                    if(op>= 1.0){
+                                        clearInterval(timer);
+                                    }
+                                    element.style.opacity = op;
+                                    op += 0.1;
+                                }, 80);
+                                
                 
                         }
                 
                     }
-                },4300)
+                },4000);
+                    
+                }
             }
-            } 
- 
-        }
-        round = round+1;
-
+            
+            
+                
+            }
+            }
+                /*
+                 */
+           
+        
+           
+         round = round+1;
+       
+       
 }
-    
-const popup2 = document.getElementById('pop-up2');
-popup2.style.display = "none";
- 
+   
+
+
+ //loading page will be displayed each time the user clicks 'roll dice' button. 
 function loading( ){
     if(startPlaying === true){
         popup2.style.display = "block";
@@ -151,14 +176,16 @@ function loading( ){
     ,2500)
      
 }
- //popup message 
+
+
+ //popup will show up with a message including a winner after 3 round.
    
 function popupMessage(score1, score2){
     if(score1 > score2){
         winner.innerHTML = `<p>Congratulation! You won!</p>
                             <p>To paly again, click 'New Game'</p>`;
 
-    }else if(score1 = score2){
+    }else if(score1 === score2){
         winner.innerHTML = `<p>Tie! To paly again, click 'New Game' </p>`;  
     }else{
         winner.innerHTML = `<p>Tough luck! You lost..</p>
@@ -167,23 +194,25 @@ function popupMessage(score1, score2){
     }
 
 }
+
+//popup will close when clicking 'ok' button
 closePopup.addEventListener('click', function(){
-    popup.style.opacity = "0";
+    popup.style.display= "none";
     });
 
 
-//roll the dice
+//A button that will roll the dice
 rollDiceBtn.addEventListener("click", function(){
     startPlaying = true; 
     rollTheDice();
    });
 
-// click new game
+//A button that will reset the score and start a new game
 newGameBtn.addEventListener("click", function(){
     gameOver = false;
     yourTotalScore = 0;
     computerTotalScore = 0;
-    round = 1;
+    round = 0;
     popup.style.opacity = "0";
     console.log("Reset all rounds")
 });
