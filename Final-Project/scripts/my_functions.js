@@ -210,9 +210,9 @@ rollDiceBtn.addEventListener("click", function(){
 
 //A button that will reset the score and start a new game
 newGameBtn.addEventListener("click", function(){
+    totalScore = 0;
+    totalScoreComputer = 0;
     gameOver = false;
-    yourTotalScore = 0;
-    computerTotalScore = 0;
     round = 0;
     popup.style.opacity = "0";
     console.log("Reset all rounds")
