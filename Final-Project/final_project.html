@@ -1,3 +1,7 @@
+<!--
+    Author: Hyeonah Kim(A01251561)
+-->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,10 +9,11 @@
         <title>Dice Game - Final Project</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="styles/draft.css"/>
+        <link rel="stylesheet" href="styles/styles.css"/>
         <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css2?family=Chango&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="wrapper">
@@ -26,7 +31,7 @@
                 <section id="pop-up2" style="display: block;">
                     <div>
                         <img src="images/rolling-dice3.gif">
-                        <h2>RoLLING...</h2>
+                        <h2>ROLLING...</h2>
                     </div> 
                 </section>
 
@@ -55,7 +60,7 @@
                                     <p>Current Score</p>
                                     <span id="your-score">0</span>
                                 </div>
-                                <div >
+                                <div class="total-score">
                                     <p>Total Score</p>
                                     <span id="your-total-score">0</span>
                                 </div>
@@ -80,13 +85,13 @@
                     
                         </div>
                         <div class="score">
-                            <h3>Your Score</h3>
+                            <h3>Computer's Score</h3>
                             <div class="scores">
                                 <div>
                                     <p>Current Score</p>
                                     <span id="computer-score">0</span>
                                 </div>
-                                <div>
+                                <div class="total-score">
                                     <p>Total Score</p>
                                     <span id="computer-total-score">0</span>
                                 </div>
@@ -139,6 +144,6 @@
             <!-- refer the style of footer to have it on the left bottom side of the page-->
         </div>
         <script src="scripts/jquery-3.4.1.min.js"></script>
-        <script src="scripts/my_functions.js"></script>
+        <script src="scripts/final_project.js"></script>
    </body>
 </html>

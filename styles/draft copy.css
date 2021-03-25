@@ -2,20 +2,21 @@
 header h1 {
   font-family: 'Chango', cursive;
   text-align: center;
-  color: #294d31;
+  color: #16697a;
 }
 
 body {
-  background-color: #fefae0;
+  min-width: 700px;
+  background-color: #ffd6ba;
 }
 
 /*pop up style*/
 #pop-up {
   width: 300px;
   padding: 10px;
-  background-color: pink;
+  background-color: #98c1d9;
   color: white;
-  border: solid 1px red;
+  border: solid 1px #16697a;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -26,10 +27,12 @@ body {
 }
 
 #pop-up h1 {
+  font-family: 'Chango', cursive;
   text-align: center;
 }
 
 #pop-up p {
+  font-family: 'Roboto Condensed', sans-serif;
   margin-bottom: 40px;
 }
 
@@ -46,8 +49,14 @@ body {
   pointer-events: all;
 }
 
+#btn-close:hover {
+  background-color: #16697a;
+  border: solid 1px #16697a;
+}
+
 /*rolling dice*/
 #pop-up2 {
+  font-family: 'Chango', cursive;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -71,7 +80,9 @@ body {
 
 /*page content*/
 .game-container {
+  font-family: 'Roboto Condensed', sans-serif;
   background-color: white;
+  border-radius: 10px;
   margin: 0 auto;
   width: 80%;
   display: flex;
@@ -79,10 +90,15 @@ body {
   justify-content: space-around;
 }
 
+.game-container h2 {
+  font-family: 'Chango', cursive;
+}
+
 .game-container section {
   margin: 10px;
   width: 100%;
   border: 1px solid black;
+  border-radius: 10px;
 }
 
 .game-container h2 {
@@ -91,8 +107,9 @@ body {
 }
 
 section h3 {
-  background-color: #00afb9;
+  background-color: #a44a3f;
   text-align: center;
+  color: white;
 }
 
 section .dices, section .scores {
@@ -102,17 +119,28 @@ section .dices, section .scores {
 
 section .dices div, section .scores div {
   padding: 5%;
-  border: 1px solid black;
   width: 45%;
   text-align: center;
 }
 
+section .dices .dice-02, section .scores .dice-02 {
+  border-left: 1px solid black;
+}
+
+section .dices .total-score, section .scores .total-score {
+  border-left: 1px solid black;
+}
+
 .dice h3 {
   margin: 0px;
+  padding: 2% 0;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .score h3 {
   margin: 0px;
+  padding: 2% 0;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 /*buttons*/
@@ -124,28 +152,29 @@ section .dices div, section .scores div {
 
 .buttons #btn-new-game {
   background-color: white;
-  border: 2px solid #4CAF50;
-  color: green;
+  border: 2px solid  #16697a;
+  color: #16697a;
 }
 
 .buttons #btn-new-game:hover {
   color: white;
-  background-color: #4CAF50;
+  background-color: #16697a;
 }
 
 .buttons #btn-roll-dice {
   background-color: white;
-  border: 2px solid #ff9800;
-  color: orange;
+  border: 2px solid #D36A5F;
+  color: #D36A5F;
 }
 
 .buttons #btn-roll-dice:hover, .buttons :active {
-  background-color: #ff9800;
+  background-color: #D36A5F;
   color: white;
 }
 
 .buttons button {
-  width: 10%;
+  border-radius: 10px;
+  width: 120px;
   font-size: medium;
   cursor: pointer;
   margin: 0 2%;
@@ -157,10 +186,15 @@ section .dices div, section .scores div {
   border-bottom: 3px solid black;
 }
 
+.accordion-container .content {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
 .content-header {
   display: flex;
   padding: 0 5%;
   justify-content: space-between;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .content-header span {
